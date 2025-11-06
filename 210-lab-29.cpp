@@ -54,14 +54,26 @@ struct Car_Array{
     list<double> profit;
 };
 
+// Define randomCar() function
 Car randomCar(const vector<Car>&);
 
+// Begin main function
 int main(){
+
+    // Seed random number generator
     srand(time(0));
 
+    // Declare vectors to hold Car objects 
+    // vector cars_s to hold Car objects from sell.txt
     vector<Car> cars_s;
+
+    // vector cars_t to hold Car objects from trade.txt
     vector<Car> cars_t;
+
+    // Declare string to read lines from the files 
     string file_in;
+    
+    // Open sell.txt and trade.txt
     fstream car_sell("sell.txt");
     fstream car_trade("trade.txt");
 
@@ -140,7 +152,7 @@ int main(){
 
 
 /*
-Define randomCar() function
+randomCar() function
    argument: vector of Car objects
    returns: randomly selected Car from the vector
 */

@@ -76,7 +76,18 @@ int main(){
 
     while(getline(car_trade, file_in)){
 
-        // Same approach as for cars_s, but for cars_t
+        stringstream ss(file_in);
+        string make;
+        int mileage;
+        int year;
+        double price;
+
+        ss >> make >> mileage >> year >> price;
+
+        Car car_temp(make, mileage, year, price);
+
+        cars_t.push_back(car_temp);
+
 
     }
 
@@ -100,9 +111,11 @@ int main(){
     for( const auto& car: dealersData["Dealer #1"].car_S){
         cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
+    cout << "Dealer's #1 Inventory after trade: " << endl;
     for( const auto& car: dealersData["Dealer #1"].car_T){
         cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
+    cout << "Dealer's #1 profit: " << endl;
     for( const auto& p: dealersData["Dealer #1"].profit){
         cout << " $"<< p << endl;
     }

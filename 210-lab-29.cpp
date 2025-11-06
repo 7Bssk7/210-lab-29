@@ -7,14 +7,25 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
 class Car{
     public:
-    
+        Car(string m, int mile, int y, double p){
+            make = m;
+            mileage = mile;
+            year = y;
+            price = p;
+        }
+
     private:
-}
+        string make;
+        int mileage;
+        int year;
+        double price;
+};
 
 int main(){
 

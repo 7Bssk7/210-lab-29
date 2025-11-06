@@ -1,5 +1,7 @@
-// COMSC-210 | Lab 29 | Arkhip Finski
+// COMSC-210 | PSEUDOCODE Lab 29 | Arkhip Finski
 // IDE used: Visual Studio
+
+//Include all necessary headers
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -11,6 +13,12 @@
 
 using namespace std;
 
+/*
+ Define Car class
+    Private members: make, mileage, year, price
+    Constructor to initialize car private data members 
+    Getter methods: getMake(), getMile(), getYear(), getPrice()
+*/
 class Car{
     public:
         Car (){};
@@ -33,6 +41,13 @@ class Car{
         double price;
 };
 
+/*
+ Define Car_Array struct
+ Contains 3 lists:
+    car_S — cars for sale
+    car_T — trade-in cars
+    profit — monthly profit values
+*/
 struct Car_Array{
     list<Car> car_S;
     list<Car> car_T;

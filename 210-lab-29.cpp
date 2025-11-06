@@ -131,18 +131,24 @@ int main(){
     // Close the file trade.txt
     car_trade.close();
 
+    // Declare map<string, Car_Array> dealersData
     map<string, Car_Array> dealersData;
 
+    // Create array for one dealership ("Dealer #1")
     Car_Array dealer1;
     
+    // Add 5 random cars from cars_s to car_S
     for(int i = 0; i < 5; ++i){
         dealer1.car_S.push_back(randomCar(cars_s));
     }
+    // Add 3 random cars from cars_t to car_T
     for(int i = 0; i < 3; ++i){
         dealer1.car_T.push_back(randomCar(cars_t));
     }
+    // Push one dummy profit value (e.g., 10000.0) to profit list
     dealer1.profit.push_back(10000);
 
+    // Assign dealer "Dealer #1" with array dealer1;
     dealersData["Dealer #1"] = dealer1;
 
     cout << "Dealer's #1 Inventory for sale: " << endl;

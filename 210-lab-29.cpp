@@ -21,6 +21,11 @@ class Car{
             price = p;
         }
 
+        string getMake() const { return make;}
+        int getMile() const { return mileage;}
+        int getYear() const { return year;}
+        double getPrice() const { return price;}
+
     private:
         string make;
         int mileage;
@@ -89,6 +94,11 @@ int main(){
     dealer1.profit.push_back(10000);
 
     dealersData["Dealer #1"] = dealer1;
+
+    cout << "Dealer's #1 Inventory for sale: " << endl;
+    for( const auto& car: dealersData["Dealer #1"].car_S){
+        cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
+    }
 
 
 

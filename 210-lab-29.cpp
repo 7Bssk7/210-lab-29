@@ -28,6 +28,12 @@ class Car{
         double price;
 };
 
+struct Car_Array{
+    list<Car> car_S;
+    list<Car> car_T;
+    list<double> profit;
+};
+
 int main(){
 
     vector<Car> cars_s;
@@ -62,9 +68,15 @@ int main(){
 
     while(getline(car_trade, file_in)){
 
+        // Same approach as for cars_s, but for cars_t
+
     }
 
     car_trade.close();
+
+    map<Car, Car_Array> dealersData;
+
+
 
     
 

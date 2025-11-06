@@ -34,6 +34,8 @@ struct Car_Array{
     list<double> profit;
 };
 
+Car randomCar(const vector<Car>&);
+
 int main(){
 
     vector<Car> cars_s;
@@ -74,7 +76,19 @@ int main(){
 
     car_trade.close();
 
-    map<Car, Car_Array> dealersData;
+    map<string, Car_Array> dealersData;
+
+    Car_Array dealer1;
+    
+    for(int i = 0; i < 5; ++i){
+        dealer1.car_S.push_back(randomCar(cars_s));
+    }
+    for(int i = 0; i < 3; ++i){
+        dealer1.car_T.push_back(randomCar(cars_t));
+    }
+    dealer1.profit.push_back(10000);
+
+    dealersData["Dealer #1"] = dealer1;
 
 
 

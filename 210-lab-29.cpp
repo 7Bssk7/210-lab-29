@@ -42,6 +42,7 @@ struct Car_Array{
 Car randomCar(const vector<Car>&);
 
 int main(){
+    srand(time(0));
 
     vector<Car> cars_s;
     vector<Car> cars_t;
@@ -106,11 +107,9 @@ int main(){
         cout << " $"<< p << endl;
     }
 
-
-
-    
-
-
-
     return 0;
+}
+
+Car randomCar(const vector<Car>& list){
+    return list.at(rand() % list.size());
 }

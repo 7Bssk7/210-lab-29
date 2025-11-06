@@ -1,4 +1,11 @@
 Project Overview: My project is a simulation of a small car dealership, which will run for three years (36 months). The program will track monthly sales, trade-ins, profits, and the dealership's inventory. The simulation reflects the dealership's performance over time, showing changes in inventory and dealership revenue generation.
 
-Implementation:
-Simulated events:
+Implementation: In my project, I plan to use std::map to store and manage data related to the operation of various car dealerships. Each dealership will have a unique name (key) in the map. The map will contain a std::array of three std::list containers, each representing a separate aspect of the dealership's functionality that our program will track.
+
+The first list will store new cars available for sale.
+
+The second list will store trade-in cars, which in this version of the simulation are collected but not resold.
+
+The third list will track the dealership's operations for each month, including the number of cars sold, trade-in cars received, and the total profit for each month.
+
+Simulated events: In my project, I plan to simulate the operations of small dealerships, tracking sales, inventory changes, and profits. Each event in my simulation will be based on a percentage component. For example, each car listed for sale has a 20% chance of being sold. For each car purchase, there will be a 30% chance that someone will trade in their old car(those cars will be added to the dealership’s trade-in inventory). There will also be a 10% chance that someone will sell their car to the dealership during the cycle(these vehicles are also added to the trade-in list). Each car within the simulation will have a fixed price. Thus, using probability, the program will simulate and track dealership operations over 36 cycles (36 months or three years). (I want to clarify that I can further change the percentages for the chance of a particular situation occurring during the project, depending on how realistic the program behaves.)

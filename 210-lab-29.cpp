@@ -185,3 +185,10 @@ randomCar() function
 Car randomCar(const vector<Car>& list){
     return list.at(rand() % list.size());
 }
+
+/*
+Lab 30 Expansion Plan — Full-Fledged Simulation
+
+In Lab 30 I'm going to create a full-fledged simulation
+
+*/

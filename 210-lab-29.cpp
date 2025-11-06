@@ -99,6 +99,12 @@ int main(){
     for( const auto& car: dealersData["Dealer #1"].car_S){
         cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
+    for( const auto& car: dealersData["Dealer #1"].car_T){
+        cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
+    }
+    for( const auto& p: dealersData["Dealer #1"].profit){
+        cout << " $"<< p << endl;
+    }
 
 
 

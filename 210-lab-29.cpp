@@ -138,6 +138,12 @@ int main(){
     return 0;
 }
 
+
+/*
+Define randomCar() function
+   argument: vector of Car objects
+   returns: randomly selected Car from the vector
+*/
 Car randomCar(const vector<Car>& list){
     return list.at(rand() % list.size());
 }

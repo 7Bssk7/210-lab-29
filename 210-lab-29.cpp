@@ -72,19 +72,24 @@ int main(){
 
     // Declare string to read lines from the files 
     string file_in;
-    
+
     // Open sell.txt and trade.txt
     fstream car_sell("sell.txt");
     fstream car_trade("trade.txt");
 
+    // Check if file sell.txt is open
     if(!car_sell){
         return 1;
     }
+    // Check if file trade.txt is open
     else if(!car_trade){
         return 1;
     }
 
+    // Read sell.txt line by line
     while(getline(car_sell, file_in)){
+
+        // For each line extract make, mileage, year, price
         stringstream ss(file_in);
         string make;
         int mileage;
@@ -93,16 +98,20 @@ int main(){
 
         ss >> make >> mileage >> year >> price;
 
+        // Create Car object and push to cars_s
         Car car_temp(make, mileage, year, price);
 
         cars_s.push_back(car_temp);
 
     }
 
+    // Close the file sell.txt
     car_sell.close();
 
+    // Read trade.txt line by line
     while(getline(car_trade, file_in)){
 
+        // For each line extract make, mileage, year, price
         stringstream ss(file_in);
         string make;
         int mileage;
@@ -111,6 +120,7 @@ int main(){
 
         ss >> make >> mileage >> year >> price;
 
+        // Create Car object and push to cars_t
         Car car_temp(make, mileage, year, price);
 
         cars_t.push_back(car_temp);
@@ -118,6 +128,7 @@ int main(){
 
     }
 
+    // Close the file trade.txt
     car_trade.close();
 
     map<string, Car_Array> dealersData;

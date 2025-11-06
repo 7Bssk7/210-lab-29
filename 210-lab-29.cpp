@@ -21,15 +21,6 @@ class Car{
             price = p;
         }
 
-        string getMake () const{ return make;}
-        void setMake(string m) { make = m;}
-        int getMiles () const { return mileage;}
-        void setMiles(int mile) { mileage = mile;}
-        int getYear() const  { return year;}
-        void setYear(int y) { year = y;}
-        double getPrice() const { return price;}
-        void setPrice( double p) { price = p;}
-
     private:
         string make;
         int mileage;
@@ -53,7 +44,6 @@ int main(){
     }
 
     while(getline(car_sell, file_in)){
-        Car car_temp;
         stringstream ss(file_in);
         string make;
         int mileage;
@@ -62,10 +52,7 @@ int main(){
 
         ss >> make >> mileage >> year >> price;
 
-        car_temp.setMake(make);
-        car_temp.setMiles(mileage);
-        car_temp.setYear(year);
-        car_temp.setPrice(price);
+        Car car_temp(make, mileage, year, price);
 
         cars_s.push_back(car_temp);
 

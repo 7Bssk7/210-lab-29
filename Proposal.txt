@@ -1,0 +1,4 @@
+Project Overview: My project is a simulation of a small car dealership, which will run for three years (36 months). The program will track monthly sales, trade-ins, profits, and the dealership's inventory. The simulation reflects the dealership's performance over time, showing changes in inventory and dealership revenue generation.
+
+Implementation:
+Simulated events:

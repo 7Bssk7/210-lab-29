@@ -191,4 +191,19 @@ Lab 30 Expansion Plan — Full-Fledged Simulation
 
 In Lab 30 I'm going to create a full-fledged simulation
 
+I will add:
+ 1.A loop will run simulation for 25 time periods.
+    - Every cycle in every dealership there will be sales, trade-ins and purchases with a certain chance.
+    - Each period will show changes in inventory and profit.
+
+ 2.Additional function I will add:
+    - chance(): returns true with given probability
+    - displayDealer(): outputs current state of a dealership
+
+ 3.The sell.txt and trade.txt files will include 100+ lines of car data.
+
+ 4.The map will be expanded to include multiple dealerships.
+
+This will show how the dealership simulation works over time.
+
 */

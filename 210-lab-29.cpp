@@ -151,16 +151,25 @@ int main(){
     // Assign dealer "Dealer #1" with array dealer1;
     dealersData["Dealer #1"] = dealer1;
 
+    // Output dealers "Dealer #1" inventory
     cout << "Dealer's #1 Inventory for sale: " << endl;
+    // Output every single car for sale in "Dealer #1" inventory
     for( const auto& car: dealersData["Dealer #1"].car_S){
+        // Print make, mileage, year, price
         cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
+
+    // Output every single car for trade in "Dealer #1" inventory
     cout << "Dealer's #1 Inventory after trade: " << endl;
     for( const auto& car: dealersData["Dealer #1"].car_T){
+        // Print make, mileage, year, price
         cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
+
+    // Output each profit value of "Dealer #1"
     cout << "Dealer's #1 profit: " << endl;
     for( const auto& p: dealersData["Dealer #1"].profit){
+        //Print the amount 
         cout << " $"<< p << endl;
     }
 

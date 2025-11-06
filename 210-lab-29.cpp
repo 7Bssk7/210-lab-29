@@ -10,9 +10,29 @@
 
 using namespace std;
 
+class Car{
+    public:
+    
+    private:
+}
+
 int main(){
 
-    vector<string> cars;
+    vector<Car> cars_s;
+    vector<Car> cars_t;
+    string car;
+    fstream car_sell("sell.txt");
+    fstream car_trade("trade.txt");
+
+    if(!car_sell){
+        return 1;
+    }
+    else if(!car_trade){
+        return 1;
+    }
+
+    
+
 
 
     return 0;

@@ -64,7 +64,7 @@ Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
 void outputDealer(const Car_Array& );
-void simulatio(Car_Array&); 
+void simulation(Car_Array&); 
 
 // Begin main function
 int main(){
@@ -172,8 +172,14 @@ int main(){
     cout << "Dealer #3 Initial Inventory" << endl;
     outputDealer(dealersData["Dealer #3"]);
 
-    for(int i = 0; i < SIM; i++){
-
+    cout << "\n*** SIMULATION ***" << endl;
+    for(int i = 0; i < 1; i++){
+        cout << "MONTH #" << i+1 << endl;
+        simulation(dealersData["Dealer #1"]);
+        cout << "MONTH #" << i+1 << endl;
+        simulation(dealersData["Dealer #2"]);
+        cout << "MONTH #" << i+1 << endl;
+        simulation(dealersData["Dealer #3"]);
     }
 
 
@@ -183,6 +189,17 @@ int main(){
 
 
 void simulation(Car_Array& dl){
+    int count = 0;
+    double profit;
+
+    if(chance(20)){
+        if(chance(30)){
+
+        }
+    }
+    if(chance(5)){
+
+    }
 
 }
 
@@ -231,8 +248,10 @@ void outputDealer(const Car_Array& dealer){
 
     // Output each profit value of "Dealer #1"
     cout << "\nProfit: " << endl;
+    int month = 1;
     for (const auto& p : dealer.profit) {
-        cout << "$" << p << "\n" << endl;
+        cout << "Month #" << month << " $" << p << "\n" << endl;
+        ++month;
     }
 
 }

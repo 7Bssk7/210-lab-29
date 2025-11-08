@@ -7,3 +7,5 @@ The unit test:
 2.Uses fixed vectors of Car objects for sale and trade-in.
 3.Calls simulation() once.
 4.Prints the updated inventory and profit to verify expected behavior.
+
+This test shows that the function correctly updates its internal state, calculates profit, and outputs program data.

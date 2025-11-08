@@ -1,0 +1,4 @@
+UNIT TESTING FOR LAB 30 
+
+To verify that the logic my simulation is correct, I created a simple unit test for the `simulation()` function. This function handles monthly dealership operations including adding cars, selling them, processing trade-ins, and calculating profit.
+

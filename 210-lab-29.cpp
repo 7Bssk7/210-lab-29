@@ -227,6 +227,7 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
             }
 
             it = dl.car_S.erase(it);
+            num_sold +=1;
         }    
 
     
@@ -252,7 +253,7 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
             Car tradeIn = randomCar(ct);
             cout << tradeIn.getMake()<< " " << tradeIn.getModel() << " " << tradeIn.getMile() << " "  << tradeIn.getYear() << " $" << tradeIn.getPrice() << endl;
             dl.car_T.push_back(tradeIn);
-            profit = profit - tradeIn.getPrice();
+            profit -= tradeIn.getPrice();
             num_trade +=1;
         }
 

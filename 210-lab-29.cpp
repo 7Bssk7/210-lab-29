@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -157,8 +158,6 @@ int main(){
     setupDealer(dealer2, cars_t, 0);
     setupDealer(dealer3, cars_s, 1);
     setupDealer(dealer3, cars_t, 0);
-
-    dealer1.profit.push_back(10000);
 
     // Assign dealer "Dealer #1" with array dealer1;
 
@@ -326,9 +325,9 @@ void outputDealerInit(const Car_Array& dealer){
 }
 
 void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
-    double profitDl1;
-    double profitDl2;
-    double profitDl3;
+    double profitDl1 = 0;
+    double profitDl2 = 0;
+    double profitDl3 = 0;
 
     cout << "Dealer's #1 inventory to sell after 36 months: " << endl;
     for (const auto& car : dl1.car_S) {
@@ -360,6 +359,29 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
     cout << endl;
+
+    auto it1 = dl1.profit.begin();
+    auto it2 = dl2.profit.begin();
+    auto it3 = dl3.profit.begin();
+
+
+    cout << setw(50) <<"*** LET SEE THE PROFITS! ***" << endl;
+    cout << setw(10) <<"MONTH #X" << setw(20) << "DEALER #1" << setw(20) << "DEALER #2" <<setw(20) << "DEALER #3" << endl;
+
+    for(int i = 1; i <= SIM; ++i){
+        cout << setw(10) << left << "Month #" << i  << setw(20) << "$" << *it1
+        << setw(20) << "$" << *it2 << setw(20) << "$" << *it3 << endl;
+        profitDl1 += *it1;
+        profitDl2 += *it2;
+        profitDl3 += *it3;
+        ++it1;
+        ++it2;
+        ++it3;
+    }
+
+
+   
+    
 
 
 

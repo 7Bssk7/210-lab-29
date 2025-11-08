@@ -377,7 +377,8 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
         string s2 = ss2.str();
         string s3 = ss3.str();
 
-        cout << left << setw(10) << "Month #" << setw(3) << i<< right << setw(15) << s1  << setw(20) << s2<< setw(20) << s3<< endl;
+
+        cout << right << setw(9) << "Month #" << left << setw(3) << i<< right << setw(16) << s1  << setw(21) << s2<< setw(21) << s3<< endl;
 
         profitDl1 += *it1;
         profitDl2 += *it2;

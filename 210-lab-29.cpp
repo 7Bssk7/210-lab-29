@@ -1,4 +1,4 @@
-// COMSC-210 | PSEUDOCODE Lab 29 | Arkhip Finski
+// COMSC-210 | Lab 30 | Arkhip Finski
 // IDE used: Visual Studio
 
 //Include all necessary headers

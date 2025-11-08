@@ -39,11 +39,16 @@ struct Car_Array {
 };
 
 bool chance(const int&);
+void simulation(Car_Array& , const vector<Car>& , const vector<Car>& );
 
 int main(){
+    vector<Car> cars_s = { Car("Toyota", "Camry", 50000, 2018, 15000.0) };
+    vector<Car> cars_t = { Car("Honda", "Civic", 60000, 2016, 8000.0) };
 
     map<string, Car_Array> dealersData;
     Car_Array dealer1;
+
+
 
 }
 

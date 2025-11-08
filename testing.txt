@@ -1,0 +1,11 @@
+UNIT TESTING FOR LAB 30 
+
+To verify that the logic my simulation is correct, I created a simple unit test for the `simulation()` function. This function handles monthly dealership operations including adding cars, selling them, processing trade-ins, and calculating profit.
+
+The unit test:
+1.Creates map with a controlled Car_Array object.
+2.Uses fixed vectors of Car objects for sale and trade-in.
+3.Calls simulation() once.
+4.Prints the updated inventory and profit to verify expected behavior.
+
+This test shows that the function correctly updates its internal state, calculates profit, and outputs program data.

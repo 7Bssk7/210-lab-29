@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int INIT_SIZE = 25;
+const int INIT_SIZE = 10, SIM = 36;
 
 /*
  Define Car class
@@ -64,6 +64,7 @@ Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
 void outputDealer(const Car_Array& );
+void simulatio(Car_Array&); 
 
 // Begin main function
 int main(){
@@ -153,20 +154,9 @@ int main(){
     setupDealer(dealer1, cars_t, 0);
     setupDealer(dealer2, cars_s, 1);
     setupDealer(dealer2, cars_t, 0);
-    setupDealer(dealer2, cars_s, 1);
-    setupDealer(dealer2, cars_t, 0);
-    
-    /*
-    // Add 5 random cars from cars_s to car_S
-    for(int i = 0; i < 5; ++i){
-        dealer1.car_S.push_back(randomCar(cars_s));
-    }
-    // Add 3 random cars from cars_t to car_T
-    for(int i = 0; i < 3; ++i){
-        dealer1.car_T.push_back(randomCar(cars_t));
-    }
-    */
-    // Push one dummy profit value (e.g., 10000.0) to profit list
+    setupDealer(dealer3, cars_s, 1);
+    setupDealer(dealer3, cars_t, 0);
+
     dealer1.profit.push_back(10000);
 
     // Assign dealer "Dealer #1" with array dealer1;
@@ -175,38 +165,26 @@ int main(){
     dealersData["Dealer #2"] = dealer2;
     dealersData["Dealer #3"] = dealer3;
 
+    cout << "Dealer #1 Initial Inventory" << endl;
     outputDealer(dealersData["Dealer #1"]);
+    cout << "Dealer #2 Initial Inventory" << endl;
+    outputDealer(dealersData["Dealer #2"]);
+    cout << "Dealer #3 Initial Inventory" << endl;
+    outputDealer(dealersData["Dealer #3"]);
 
+    for(int i = 0; i < SIM; i++){
 
-
-
-    /*
-    // Output dealers "Dealer #1" inventory
-    cout << "Dealer's #1 Inventory for sale: " << endl;
-    // Output every single car for sale in "Dealer #1" inventory
-    for( const auto& car: dealersData["Dealer #1"].car_S){
-        // Print make, mileage, year, price
-        cout << car.getMake() << " " << car.getModel()  <<" " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
 
-    // Output every single car for trade in "Dealer #1" inventory
-    cout << "\nDealer's #1 Inventory after trade: " << endl;
-    for( const auto& car: dealersData["Dealer #1"].car_T){
-        // Print make, mileage, year, price
-        cout << car.getMake() << " " << car.getModel() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
-    }
 
-    // Output each profit value of "Dealer #1"
-    cout << "Dealer's #1 profit: " << endl;
-    for( const auto& p: dealersData["Dealer #1"].profit){
-        //Print the amount 
-        cout << " $"<< p << endl;
-    }
-        */
 
     return 0;
 }
 
+
+void simulation(Car_Array& dl){
+
+}
 
 /*
 randomCar() function
@@ -226,12 +204,12 @@ bool chance( const int& p){
 
 void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
     if(check == 1){
-        for(int i = 0; i < INIT_SIZE; i++){
+        for(int i = 0; i < (rand()% 10 + 1); i++){
             dl.car_S.push_back(randomCar(list));
         }
     }
     else{
-        for(int i = 0; i < (INIT_SIZE/2); i++){
+        for(int i = 0; i < (rand()% 5 + 1); i++){
             dl.car_T.push_back(randomCar(list));
         }
 
@@ -246,7 +224,7 @@ void outputDealer(const Car_Array& dealer){
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
 
-    cout << "\nInventory after trade: " << endl;
+    cout << "\nInventory traded: " << endl;
     for (const auto& car : dealer.car_T) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
@@ -254,7 +232,7 @@ void outputDealer(const Car_Array& dealer){
     // Output each profit value of "Dealer #1"
     cout << "\nProfit: " << endl;
     for (const auto& p : dealer.profit) {
-        cout << "$" << p << endl;
+        cout << "$" << p << "\n" << endl;
     }
 
 }

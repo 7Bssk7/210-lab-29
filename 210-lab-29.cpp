@@ -13,6 +13,8 @@
 
 using namespace std;
 
+const int INIT_SIZE = 25;
+
 /*
  Define Car class
     Private members: make, mileage, year, price
@@ -60,7 +62,7 @@ struct Car_Array{
 // Define randomCar() function
 Car randomCar(const vector<Car>&);
 bool chance(const int&);
-void setupDealer(Car_Array& , const vector<Car>&);
+void setupDealer(Car_Array& , const vector<Car>&, int);
 
 // Begin main function
 int main(){
@@ -144,9 +146,14 @@ int main(){
     // Create array for one dealership ("Dealer #1")
     Car_Array dealer1;
     Car_Array dealer2;
-    Car_Array delaer3;
+    Car_Array dealer3;
 
-    setupDealer(dealer1);
+    setupDealer(dealer1, cars_s, 1);
+    setupDealer(dealer1, cars_t, 0);
+    setupDealer(dealer2, cars_s, 1);
+    setupDealer(dealer2, cars_t, 0);
+    setupDealer(dealer2, cars_s, 1);
+    setupDealer(dealer2, cars_t, 0);
     
     /*
     // Add 5 random cars from cars_s to car_S
@@ -157,12 +164,15 @@ int main(){
     for(int i = 0; i < 3; ++i){
         dealer1.car_T.push_back(randomCar(cars_t));
     }
+    */
     // Push one dummy profit value (e.g., 10000.0) to profit list
     dealer1.profit.push_back(10000);
 
     // Assign dealer "Dealer #1" with array dealer1;
-    */
+
     dealersData["Dealer #1"] = dealer1;
+    dealersData["Dealer #2"] = dealer2;
+    dealersData["Dealer #3"] = dealer3;
 
 
 
@@ -177,7 +187,7 @@ int main(){
     }
 
     // Output every single car for trade in "Dealer #1" inventory
-    cout << "Dealer's #1 Inventory after trade: " << endl;
+    cout << "\nDealer's #1 Inventory after trade: " << endl;
     for( const auto& car: dealersData["Dealer #1"].car_T){
         // Print make, mileage, year, price
         cout << car.getMake() << " " << car.getModel() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
@@ -210,6 +220,18 @@ bool chance( const int& p){
     
 }
 
-void setupDealer( Car_Array& dl, const vector<>){
+void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
+    if(check == 1){
+        for(int i = 0; i < INIT_SIZE; i++){
+            dl.car_S.push_back(randomCar(list));
+        }
+    }
+    else{
+        for(int i = 0; i < (INIT_SIZE/2); i++){
+            dl.car_T.push_back(randomCar(list));
+        }
+
+    }
+
 
 }

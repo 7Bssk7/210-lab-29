@@ -64,7 +64,7 @@ Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
 void outputDealer(const Car_Array& );
-void simulation(Car_Array&); 
+void simulation(Car_Array&,const vector<Car>&, const vector<Car>&); 
 
 // Begin main function
 int main(){
@@ -173,13 +173,16 @@ int main(){
     outputDealer(dealersData["Dealer #3"]);
 
     cout << "\n*** SIMULATION ***" << endl;
-    for(int i = 0; i < 1; i++){
+    for(int i = 0; i < 5; i++){
+        cout << "\nDealer #1" << endl;
         cout << "MONTH #" << i+1 << endl;
-        simulation(dealersData["Dealer #1"]);
+        simulation(dealersData["Dealer #1"],cars_s,cars_t);
+        cout << "\nDealer #2" << endl;
         cout << "MONTH #" << i+1 << endl;
-        simulation(dealersData["Dealer #2"]);
+        simulation(dealersData["Dealer #2"],cars_s,cars_t);
+        cout << "\nDealer #3" << endl;
         cout << "MONTH #" << i+1 << endl;
-        simulation(dealersData["Dealer #3"]);
+        simulation(dealersData["Dealer #3"],cars_s,cars_t);
     }
 
 
@@ -188,16 +191,45 @@ int main(){
 }
 
 
-void simulation(Car_Array& dl){
+void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     int count = 0;
-    double profit;
+    double profit = 0;
+    int num_trade = 0;
+    
 
     if(chance(20)){
         if(chance(30)){
 
         }
+        else{
+
+
+
+        }
     }
-    if(chance(5)){
+    if(chance(10)){
+        int trades = 1;
+        if(chance(40)){    
+            trades = 2;
+        }
+        else if(chance(20)){
+            trades = 3;
+        }
+        else if(chance(10)){
+            trades = 4;
+
+        }
+        else if(chance(5)){
+            trades = 5;
+        }
+
+        cout << num_trade + trades << " car(s) traded in this month" << endl;
+        for(int i = 0; i < trades; ++i){
+            Car trade_in = randomCar(ct);
+            dl.car_T.push_back(trade_in);
+        }
+
+
 
     }
 

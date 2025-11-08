@@ -60,6 +60,7 @@ struct Car_Array{
 // Define randomCar() function
 Car randomCar(const vector<Car>&);
 bool chance(const int&);
+void setupDealer(Car_Array& , const vector<Car>&);
 
 // Begin main function
 int main(){
@@ -142,7 +143,12 @@ int main(){
 
     // Create array for one dealership ("Dealer #1")
     Car_Array dealer1;
+    Car_Array dealer2;
+    Car_Array delaer3;
+
+    setupDealer(dealer1);
     
+    /*
     // Add 5 random cars from cars_s to car_S
     for(int i = 0; i < 5; ++i){
         dealer1.car_S.push_back(randomCar(cars_s));
@@ -155,7 +161,12 @@ int main(){
     dealer1.profit.push_back(10000);
 
     // Assign dealer "Dealer #1" with array dealer1;
+    */
     dealersData["Dealer #1"] = dealer1;
+
+
+
+
 
     // Output dealers "Dealer #1" inventory
     cout << "Dealer's #1 Inventory for sale: " << endl;
@@ -197,4 +208,8 @@ bool chance( const int& p){
 
     return ( random <= p);
     
+}
+
+void setupDealer( Car_Array& dl, const vector<>){
+
 }

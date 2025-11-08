@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <map>
 #include <string>
 using namespace std;
 
@@ -37,6 +38,15 @@ struct Car_Array {
     list<double> profit;
 };
 
+bool chance(const int&);
+
 int main(){
 
+    map<string, Car_Array> dealersData;
+    Car_Array dealer1;
+
+}
+
+bool chance(const int&){
+    return true;
 }

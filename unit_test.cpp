@@ -39,6 +39,7 @@ struct Car_Array {
 };
 
 bool chance(const int&);
+Car randomCar(const vector<Car>& );
 void simulation(Car_Array& , const vector<Car>& , const vector<Car>& );
 
 int main(){
@@ -54,4 +55,18 @@ int main(){
 
 bool chance(const int&){
     return true;
+}
+
+void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct) {
+    double profit = 0;
+
+    dl.car_S.push_back(randomCar(cs));
+
+    auto it = dl.car_S.begin();
+    profit += 
+
+}
+
+Car randomCar(const vector<Car>& list) { 
+    return list[0]; 
 }

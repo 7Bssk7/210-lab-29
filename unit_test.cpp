@@ -30,3 +30,13 @@ class Car{
         int year;
         double price;
 };
+
+struct Car_Array {
+    list<Car> car_S;
+    list<Car> car_T;
+    list<double> profit;
+};
+
+int main(){
+
+}

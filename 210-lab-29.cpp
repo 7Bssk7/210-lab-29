@@ -186,7 +186,6 @@ int main(){
     }
 
 
-
     return 0;
 }
 
@@ -205,15 +204,32 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     }
     cout << endl;
 
-    if(chance(20)){
-        if(chance(30)){
+    for(auto it = dl.car_S.begin(); it != dl.car_S.end(); ++it){
+        if(chance(20)){
+            double salePrice = it->getPrice();
 
-        }
-        else{
+            if(chance(30)){
+                Car tradeIn = randomCar(ct);
+                double tradeValue = tradeIn.getPrice();
+                profit += (salePrice - tradeValue);
+                dl.car_T.push_back(tradeIn);
+                num_trade +=1;
 
+                cout << "Sold: " << it->getMake() << " " << it->getModel() << " for $" << salePrice << endl;
+                cout << "Trade-in: " << tradeIn.getMake() << " " << tradeIn.getModel()<< " valued at $" << tradeValue << endl;
+                cout << "Profit: $" << (salePrice - tradeValue) << endl;
+            }
+            else{
+                profit += salePrice;
+                cout << "Sold: " << it->getMake() << " " << it->getModel() << " for $" << salePrice << endl;
+                cout << "No Trade-in" << endl;
+                cout << "Profit: $" << salePrice << endl;
+            }
 
+            it = dl.car_S.erase(it);
+        }    
 
-        }
+    
     }
     if(chance(10)){
         int trades = 1;
@@ -231,18 +247,22 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
             trades = 5;
         }
 
-        cout << num_trade + trades << " car(s) traded in this month" << endl;
+        cout << num_trade + trades << " car(s) traded in this month: " << endl;
         for(int i = 0; i < trades; ++i){
             Car tradeIn = randomCar(ct);
+            cout << tradeIn.getMake()<< " " << tradeIn.getModel() << " " << tradeIn.getMile() << " "  << tradeIn.getYear() << " $" << tradeIn.getPrice() << endl;
             dl.car_T.push_back(tradeIn);
             profit = profit - tradeIn.getPrice();
             num_trade +=1;
         }
+
     }
 
     cout << "Cars sold: " << num_sold << endl;
     cout << "Cars traded in: " << num_trade << endl;
     cout << "Profit this month: $" << profit << endl;
+
+    dl.profit.push_back(profit);
 
 }
 

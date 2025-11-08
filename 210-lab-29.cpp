@@ -369,8 +369,16 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     cout << setw(10) <<"MONTH #X" << setw(20) << "DEALER #1" << setw(20) << "DEALER #2" <<setw(20) << "DEALER #3" << endl;
 
     for(int i = 1; i <= SIM; ++i){
-        cout << setw(10) << left << "Month #" << i  << setw(20) << "$" << *it1
-        << setw(20) << "$" << *it2 << setw(20) << "$" << *it3 << endl;
+        std::stringstream ss1, ss2, ss3;
+        ss1 << '$' << *it1;
+        ss2 << '$' << *it2;
+        ss3 << '$' << *it3;
+        string s1 = ss1.str();
+        string s2 = ss2.str();
+        string s3 = ss3.str();
+
+        cout << left << setw(10) << "Month #" << setw(3) << i<< right << setw(15) << s1  << setw(20) << s2<< setw(20) << s3<< endl;
+
         profitDl1 += *it1;
         profitDl2 += *it2;
         profitDl3 += *it3;

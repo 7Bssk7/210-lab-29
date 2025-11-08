@@ -63,7 +63,8 @@ struct Car_Array{
 Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
-void outputDealer(const Car_Array& );
+void outputDealerInit(const Car_Array& );
+void outputDealerFin(const Car_Array&, const Car_Array&, const Car_Array& );
 void simulation(Car_Array&,const vector<Car>&, const vector<Car>&); 
 
 // Begin main function
@@ -166,14 +167,14 @@ int main(){
     dealersData["Dealer #3"] = dealer3;
 
     cout << "Dealer #1 Initial Inventory" << endl;
-    outputDealer(dealersData["Dealer #1"]);
+    outputDealerInit(dealersData["Dealer #1"]);
     cout << "Dealer #2 Initial Inventory" << endl;
-    outputDealer(dealersData["Dealer #2"]);
+    outputDealerInit(dealersData["Dealer #2"]);
     cout << "Dealer #3 Initial Inventory" << endl;
-    outputDealer(dealersData["Dealer #3"]);
+    outputDealerInit(dealersData["Dealer #3"]);
 
     cout << "\n*** SIMULATION ***" << endl;
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < SIM; i++){
         cout << "\nDealer #1" << endl;
         cout << "MONTH #" << i+1 << endl;
         simulation(dealersData["Dealer #1"],cars_s,cars_t);
@@ -299,7 +300,7 @@ void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
 
 }
 
-void outputDealer(const Car_Array& dealer){
+void outputDealerInit(const Car_Array& dealer){
     cout << "Inventory for sale: " << endl;
     for (const auto& car : dealer.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
@@ -317,5 +318,27 @@ void outputDealer(const Car_Array& dealer){
         cout << "Month #" << month << " $" << p << "\n" << endl;
         ++month;
     }
+
+}
+
+void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
+    double profitDl1;
+    double profitDl2;
+    double profitDl3;
+
+    for (const auto& car : dl1.car_S) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+    for (const auto& car : dl2.car_S) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+    for (const auto& car : dl3.car_S) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+
+
 
 }

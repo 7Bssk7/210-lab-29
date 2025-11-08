@@ -67,10 +67,13 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct) {
     dl.car_S.push_back(randomCar(cs));
 
     auto it = dl.car_S.begin();
+    cout << "SOLD: "  << it->getMake() << " " << it->getModel() << " for $" << it->getPrice() << endl;
     profit += it->getPrice();
     dl.car_S.erase(it);
 
-    dl.car_T.push_back(randomCar(ct));
+    Car tradeIn = randomCar(ct);
+    dl.car_T.push_back(tradeIn);
+    cout << "Trade-in: " << tradeIn.getMake() << " " << tradeIn.getModel()<< " valued at $" << tradeIn.getPrice() << endl; 
     profit -= ct[0].getPrice();
 
     dl.profit.push_back(profit);

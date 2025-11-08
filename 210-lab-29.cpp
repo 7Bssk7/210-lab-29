@@ -22,20 +22,23 @@ using namespace std;
 class Car{
     public:
         Car (){};
-        Car(string m, int mile, int y, double p){
+        Car(string m, string mo, int mile, int y, double p){
             make = m;
+            model = mo;
             mileage = mile;
             year = y;
             price = p;
         }
 
         string getMake() const { return make;}
+        string getModel() const { return model;}
         int getMile() const { return mileage;}
         int getYear() const { return year;}
         double getPrice() const { return price;}
 
     private:
         string make;
+        string model;
         int mileage;
         int year;
         double price;
@@ -92,14 +95,15 @@ int main(){
         // For each line extract make, mileage, year, price
         stringstream ss(file_in);
         string make;
+        string model;
         int mileage;
         int year;
         double price;
 
-        ss >> make >> mileage >> year >> price;
+        ss >> make >> model >> mileage >> year >> price;
 
         // Create Car object and push to cars_s
-        Car car_temp(make, mileage, year, price);
+        Car car_temp(make, model, mileage, year, price);
 
         cars_s.push_back(car_temp);
 
@@ -114,14 +118,15 @@ int main(){
         // For each line extract make, mileage, year, price
         stringstream ss(file_in);
         string make;
+        string model;
         int mileage;
         int year;
         double price;
 
-        ss >> make >> mileage >> year >> price;
+        ss >> make >> model >> mileage >> year >> price;
 
         // Create Car object and push to cars_t
-        Car car_temp(make, mileage, year, price);
+        Car car_temp(make, model, mileage, year, price);
 
         cars_t.push_back(car_temp);
 
@@ -156,14 +161,14 @@ int main(){
     // Output every single car for sale in "Dealer #1" inventory
     for( const auto& car: dealersData["Dealer #1"].car_S){
         // Print make, mileage, year, price
-        cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
+        cout << car.getMake() << " " << car.getModel()  <<" " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
 
     // Output every single car for trade in "Dealer #1" inventory
     cout << "Dealer's #1 Inventory after trade: " << endl;
     for( const auto& car: dealersData["Dealer #1"].car_T){
         // Print make, mileage, year, price
-        cout << car.getMake() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
+        cout << car.getMake() << " " << car.getModel() << " " << car.getMile() << " " << car.getYear() << " $" << car.getPrice() << endl;
     }
 
     // Output each profit value of "Dealer #1"
@@ -186,24 +191,3 @@ Car randomCar(const vector<Car>& list){
     return list.at(rand() % list.size());
 }
 
-/*
-Lab 30 Expansion Plan — Full-Fledged Simulation
-
-In Lab 30 I'm going to create a full-fledged simulation
-
-I will add:
- 1.A loop will run simulation for 25 time periods.
-    - Every cycle in every dealership there will be sales, trade-ins and purchases with a certain chance.
-    - Each period will show changes in inventory and profit.
-
- 2.Additional function I will add:
-    - chance(): returns true with given probability
-    - displayDealer(): outputs current state of a dealership
-
- 3.The sell.txt and trade.txt files will include 100+ lines of car data.
-
- 4.The map will be expanded to include multiple dealerships.
-
-This will show how the dealership simulation works over time.
-
-*/

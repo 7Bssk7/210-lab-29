@@ -63,6 +63,7 @@ struct Car_Array{
 Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
+void outputDealer(const Car_Array& );
 
 // Begin main function
 int main(){
@@ -174,10 +175,12 @@ int main(){
     dealersData["Dealer #2"] = dealer2;
     dealersData["Dealer #3"] = dealer3;
 
+    outputDealer(dealersData["Dealer #1"]);
 
 
 
 
+    /*
     // Output dealers "Dealer #1" inventory
     cout << "Dealer's #1 Inventory for sale: " << endl;
     // Output every single car for sale in "Dealer #1" inventory
@@ -199,6 +202,7 @@ int main(){
         //Print the amount 
         cout << " $"<< p << endl;
     }
+        */
 
     return 0;
 }
@@ -233,5 +237,24 @@ void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
 
     }
 
+
+}
+
+void outputDealer(const Car_Array& dealer){
+    cout << "Inventory for sale: " << endl;
+    for (const auto& car : dealer.car_S) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+
+    cout << "\nInventory after trade: " << endl;
+    for (const auto& car : dealer.car_T) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+
+    // Output each profit value of "Dealer #1"
+    cout << "\nProfit: " << endl;
+    for (const auto& p : dealer.profit) {
+        cout << "$" << p << endl;
+    }
 
 }

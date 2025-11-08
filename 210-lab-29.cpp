@@ -195,7 +195,15 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     int count = 0;
     double profit = 0;
     int num_trade = 0;
+    int num_sold = 0;
     
+    cout << "\nCars added to inventory this month: \n" << endl;
+    for(int i = 0; i < (rand()% 5 + 1); i++){
+            Car carAdded = randomCar(cs);
+            dl.car_S.push_back(carAdded);
+            cout << carAdded.getMake()<< " " << carAdded.getModel() << " " << carAdded.getMile() << " "  << carAdded.getYear() << " $" << carAdded.getPrice() << endl;
+    }
+    cout << endl;
 
     if(chance(20)){
         if(chance(30)){
@@ -225,13 +233,16 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
 
         cout << num_trade + trades << " car(s) traded in this month" << endl;
         for(int i = 0; i < trades; ++i){
-            Car trade_in = randomCar(ct);
-            dl.car_T.push_back(trade_in);
+            Car tradeIn = randomCar(ct);
+            dl.car_T.push_back(tradeIn);
+            profit = profit - tradeIn.getPrice();
+            num_trade +=1;
         }
-
-
-
     }
+
+    cout << "Cars sold: " << num_sold << endl;
+    cout << "Cars traded in: " << num_trade << endl;
+    cout << "Profit this month: $" << profit << endl;
 
 }
 

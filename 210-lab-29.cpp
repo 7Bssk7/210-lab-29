@@ -186,6 +186,10 @@ int main(){
         simulation(dealersData["Dealer #3"],cars_s,cars_t);
     }
 
+    cout << "\n" << endl;
+
+    outputDealerFin(dealersData["Dealer #1"], dealersData["Dealer #2"], dealersData["Dealer #3"]);
+
 
     return 0;
 }
@@ -326,18 +330,38 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     double profitDl2;
     double profitDl3;
 
+    cout << "Dealer's #1 inventory to sell after 36 months: " << endl;
     for (const auto& car : dl1.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
     cout << endl;
+    cout << "Dealer's #1 traded inventory after 36 months: " << endl;
+    for (const auto& car : dl1.car_T) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+    cout << "Dealer's #2 inventory to sell after 36 months: " << endl;
     for (const auto& car : dl2.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
     cout << endl;
+    cout << "Dealer's #2 traded inventory after 36 months: " << endl;
+    for (const auto& car : dl2.car_T) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+    cout << "Dealer's #3 inventory to sell after 36 months: " << endl;
     for (const auto& car : dl3.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
     cout << endl;
+    cout << "Dealer's #3 traded inventory after 36 months: " << endl;
+    for (const auto& car : dl3.car_T) {
+        cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
+    }
+    cout << endl;
+
+
 
 
 

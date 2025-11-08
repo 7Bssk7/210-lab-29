@@ -53,7 +53,7 @@ int main(){
 
     simulation(dealersData["Dealer #1"], cars_s, cars_t);
 
-
+     cout << "Profit for Dealer #1: $" << dealersData["Dealer #1"].profit.front() << endl;
 
 }
 

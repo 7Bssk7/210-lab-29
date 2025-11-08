@@ -49,6 +49,10 @@ int main(){
     map<string, Car_Array> dealersData;
     Car_Array dealer1;
 
+    dealersData["Dealer #1"] = dealer1;
+
+    simulation(dealersData["Dealer #1"], cars_s, cars_t);
+
 
 
 }
@@ -63,7 +67,14 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct) {
     dl.car_S.push_back(randomCar(cs));
 
     auto it = dl.car_S.begin();
-    profit += 
+    profit += it->getPrice();
+    dl.car_S.erase(it);
+
+    dl.car_T.push_back(randomCar(ct));
+    profit -= ct[0].getPrice();
+
+    dl.profit.push_back(profit);
+    cout << "Profit: $" << profit << endl;
 
 }
 

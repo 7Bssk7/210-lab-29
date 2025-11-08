@@ -393,6 +393,4 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     cout << fixed << setprecision(0);
     cout << right << setw(9) << "TOTAL PROFIT: "<< right << setw(8) << "$" << profitDl1  << setw(13) << "$" << profitDl2 << setw(15) << "$" << profitDl3 << endl;
 
-
-
 }

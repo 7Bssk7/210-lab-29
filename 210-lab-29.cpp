@@ -59,6 +59,7 @@ struct Car_Array{
 
 // Define randomCar() function
 Car randomCar(const vector<Car>&);
+bool chance(const int&);
 
 // Begin main function
 int main(){
@@ -191,3 +192,9 @@ Car randomCar(const vector<Car>& list){
     return list.at(rand() % list.size());
 }
 
+bool chance( const int& p){
+    int random = rand()% 100 + 1;
+
+    return ( random <= p);
+    
+}

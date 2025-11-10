@@ -91,10 +91,12 @@ int main(){
 
     // Check if file sell.txt is open
     if(!car_sell){
+        cout << "Error: Was't able to open the file with the cars for sale!" << endl;
         return 1;
     }
     // Check if file trade.txt is open
     else if(!car_trade){
+        cout << "Error: Was't able to open the file with the trade-in cars!" << endl;
         return 1;
     }
 
@@ -144,6 +146,12 @@ int main(){
 
     // Close the file trade.txt
     car_trade.close();
+
+    if(cars_s.empty() || cars_t.empty()){
+        cout << "Error: One or both input files are empty or invalid. Simulation could not be started." << endl;
+
+        return 1;
+    }
 
     // Declare map<string, Car_Array> dealersData
     map<string, Car_Array> dealersData;

@@ -5,3 +5,29 @@ Fix:  Add the menu where there is an option to view the initial inventory before
 Bug #2: Outputting an empty profit 
 Description: When outputting the initial inventory, the profit for each dealership is also displayed along with all the vehicles. Since the initial inventory is displayed before the simulation, the profit should be zero, not empty.
 Fix: Change the output parameters in the "outputDealerInit" function to show zero instead of nothing.
+
+Bug #3: Scientific numbers in the final profit output
+Description: When outputting the final profit of each dealer in the table, due to the large numbers, scientific numbers are outputted.
+Fix: added "cout << fixed << setprecision(0);" to get rid of scientific format.
+
+Bug #4: Uneven output
+Description: Due to changing numbers, the table displaying the final monthly results for dealer profits looks uneven.
+Fix: Added a string stream to convert the contents of each interator into a string: 
+stringstream ss1, ss2, ss3;
+        ss1 << '$' << *it1;
+        ss2 << '$' << *it2;
+        ss3 << '$' << *it3;
+        string s1;
+        ss1 >> s1;
+        string s2;
+        ss2 >> s2;
+        string s3;
+        ss3 >> s3;
+
+Bug #5: Trade-in count includes random trades before simulation
+Description: Monthly trade-in count includes extra trades from chance(10) block.
+Fix: Separated num_trade from random trade count or clarified output.
+
+Bug #6: There is no check for empty car vectors and no warning when opening files fails.
+Description: When launching the program, there is no warning if there is an error opening files containing cars. The simulation also starts without checking whether the vectors contain cars.
+Fix: Added a simple error message. I also added a check for the contents of the vector cars (if(cars_s.empty() || cars_t.empty())). If an error occurs, the program reports it and terminates without continuing with the simulation.

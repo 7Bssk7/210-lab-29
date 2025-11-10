@@ -183,7 +183,7 @@ int main(){
 
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
-        this_thread::sleep_for(std::chrono::seconds(0));
+        this_thread::sleep_for(std::chrono::seconds(1));
         cout << "\nDealer #1" << endl;
         cout << "MONTH #" << i+1 << endl;
         simulation(dealersData["Dealer #1"],cars_s,cars_t);
@@ -409,6 +409,7 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     cout << fixed << setprecision(0);
     cout << right << setw(9) << "TOTAL PROFIT: "<< right << setw(8) << "$" << profitDl1  << setw(13) << "$" << profitDl2 << setw(15) << "$" << profitDl3 << endl;
     cout << right << setw(9) << "TOTAL CARS SOLD: "<< right << setw(9) << dl1.total_sold << setw(20) << dl2.total_sold << setw(22) << dl3.total_sold << endl;
+    cout << right << setw(9) << "TOTAL CARS TRADED: "<< right << setw(7) << dl1.total_traded << setw(20) << dl2.total_traded << setw(22) << dl3.total_traded << endl;
 
 
 }

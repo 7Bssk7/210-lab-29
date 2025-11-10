@@ -125,7 +125,6 @@ int main(){
 
         // Create Car object and push to cars_s
         Car car_temp(make, model, mileage, year, price);
-
         cars_s.push_back(car_temp);
 
     }
@@ -148,7 +147,6 @@ int main(){
 
         // Create Car object and push to cars_t
         Car car_temp(make, model, mileage, year, price);
-
         cars_t.push_back(car_temp);
 
 
@@ -206,7 +204,6 @@ int main(){
 
     outputDealerFin(dealersData["Dealer #1"], dealersData["Dealer #2"], dealersData["Dealer #3"]);
 
-
     return 0;
 }
 
@@ -235,7 +232,6 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     while(it != dl.car_S.end()){
         if(chance(20)){
             double salePrice = it->getPrice();
-
             if(chance(30)){
                 Car tradeIn = randomCar(ct);
                 double tradeValue = tradeIn.getPrice();
@@ -253,7 +249,6 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
                 cout << "No Trade-in" << endl;
                 cout << "Profit: $" << salePrice << endl;
             }
-
             it = dl.car_S.erase(it);
             num_sold +=1;
         }
@@ -277,7 +272,6 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
         else if(chance(5)){
             trades = 5;
         }
-
         cout << "Random trade-in(s) this month:" << endl;
         for(int i = 0; i < trades; ++i){
             Car tradeIn = randomCar(ct);
@@ -320,9 +314,7 @@ Car randomCar(const vector<Car>& list){
 */
 bool chance( const int& p){
     int random = rand()% 100 + 1;
-
     return ( random <= p);
-    
 }
 
 /*
@@ -347,6 +339,12 @@ void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
 
 }
 
+
+/*
+    outputDealerInit(): Outputs the initial inventory of a dealer
+    Arguments: const Car_Array& dealer (dealer inventory to output)
+    Returns: void
+*/
 void outputDealerInit(const Car_Array& dealer){
     cout << "\nInventory for sale: " << endl;
     for (const auto& car : dealer.car_S) {
@@ -358,17 +356,23 @@ void outputDealerInit(const Car_Array& dealer){
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
 
-    // Output each profit value of "Dealer #1"
+    // Initial profit is always zero
     cout << "\nProfit: $0 (There is no profit, this is just a presentation of the initial inventory)" << endl;
     
 
 }
 
+/*
+    outputDealerFin(): Outputs final inventory and profit summary for all dealers
+    Arguments:const Car_Array& dl1 (Dealer #1 data), const Car_Array& dl2 (Dealer #2 data), const Car_Array& dl3 (Dealer #3 data)
+    Returns: void
+*/
 void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
     double profitDl1 = 0;
     double profitDl2 = 0;
     double profitDl3 = 0;
 
+    // Final inventory display
     cout << "Dealer's #1 inventory to sell after 36 months: " << endl;
     for (const auto& car : dl1.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
@@ -400,6 +404,7 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     }
     cout << endl;
 
+    // Monthly profit table
     auto it1 = dl1.profit.begin();
     auto it2 = dl2.profit.begin();
     auto it3 = dl3.profit.begin();
@@ -431,7 +436,7 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     }
 
     cout << endl; 
-
+    // Final totals
     cout << fixed << setprecision(0);
     cout << right << setw(9) << "TOTAL PROFIT: "<< right << setw(8) << "$" << profitDl1  << setw(13) << "$" << profitDl2 << setw(15) << "$" << profitDl3 << endl;
     cout << right << setw(9) << "TOTAL CARS SOLD: "<< right << setw(9) << dl1.total_sold << setw(20) << dl2.total_sold << setw(22) << dl3.total_sold << endl;
@@ -440,21 +445,23 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
 
 }
 
+/*
+    outputMenu(): Displays the main menu and handles user input
+    Arguments: const Car_Array& dl1, dl2, dl3 (dealer inventories)
+    Returns: void
+*/
 void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
-
     string choice;
 
     cout << "*** Welcome to the car dealership simulation! ***" << endl;
-
     cout << "\nMenu:" << endl;
-
     cout << "1. View starting inventory" << endl;
     cout << "2. Start the simulation" << endl;
-
     cout << "Choice-> ";
 
     cin >> choice;
 
+    // Loop until user chooses to start simulation
     while( choice != "2"){
 
         if(choice == "1"){
@@ -464,26 +471,18 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
             outputDealerInit(dl2);
             cout << "\nDealer #3 Initial Inventory" << endl;
             outputDealerInit(dl3);
-
             cout << "\nMenu:" << endl;
-
             cout << "1. View starting inventory" << endl;
             cout << "2. Start the simulation" << endl;
-
             cout << "Choice-> ";
-
             cin >> choice;
         }
         else{
             cout << "Invalid input, please choose again: " << endl;
-
             cout << "\nMenu:" << endl;
-
             cout << "1. View starting inventory" << endl;
             cout << "2. Start the simulation" << endl;
-
             cout << "Choice-> ";
-
             cin >> choice; 
 
         }

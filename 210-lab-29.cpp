@@ -67,6 +67,7 @@ void setupDealer(Car_Array& , const vector<Car>&, int);
 void outputDealerInit(const Car_Array& );
 void outputDealerFin(const Car_Array&, const Car_Array&, const Car_Array& );
 void simulation(Car_Array&,const vector<Car>&, const vector<Car>&); 
+void outputMenu(const Car_Array& , const Car_Array& , const Car_Array&);
 
 // Begin main function
 int main(){
@@ -165,12 +166,7 @@ int main(){
     dealersData["Dealer #2"] = dealer2;
     dealersData["Dealer #3"] = dealer3;
 
-    cout << "Dealer #1 Initial Inventory" << endl;
-    outputDealerInit(dealersData["Dealer #1"]);
-    cout << "Dealer #2 Initial Inventory" << endl;
-    outputDealerInit(dealersData["Dealer #2"]);
-    cout << "Dealer #3 Initial Inventory" << endl;
-    outputDealerInit(dealersData["Dealer #3"]);
+    outputMenu();
 
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
@@ -393,4 +389,17 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
     cout << fixed << setprecision(0);
     cout << right << setw(9) << "TOTAL PROFIT: "<< right << setw(8) << "$" << profitDl1  << setw(13) << "$" << profitDl2 << setw(15) << "$" << profitDl3 << endl;
 
+}
+
+void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
+
+    cout << "*** Welcome to the car dealership simulation! ***" << endl;
+
+
+    cout << "Dealer #1 Initial Inventory" << endl;
+    outputDealerInit(dl1);
+    cout << "Dealer #2 Initial Inventory" << endl;
+    outputDealerInit(dl2);
+    cout << "Dealer #3 Initial Inventory" << endl;
+    outputDealerInit(dl3);
 }

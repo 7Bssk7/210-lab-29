@@ -20,7 +20,7 @@ using namespace std;
 const int INIT_SIZE = 10, SIM = 36;
 
 /*
- Define Car class
+    class Car: Represents a car 
     Private members: make, mileage, year, price
     Constructor to initialize car private data members 
     Getter methods: getMake(), getMile(), getYear(), getPrice()
@@ -52,12 +52,12 @@ class Car{
 };
 
 /*
- Define Car_Array struct
+Car_Array struct
  Contains 3 lists:
     car_S — cars for sale
     car_T — trade-in cars
     profit — monthly profit values
-    Purpose: Holds inventory and profit data for a dealership
+    Car_Array: Holds inventory and profit data for a dealership
 */
 
 struct Car_Array{
@@ -212,8 +212,7 @@ int main(){
 
 
 /*
-    Function: simulation
-    Purpose: Simulates one month of sales and trade-ins
+    simulation(): Simulates one month of sales and trade-ins
     Arguments: array structure dealer, vecotr of cars for sale, vecotor of trade-in cars
     Returns: void
 */
@@ -306,7 +305,7 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
 }
 
 /*
-randomCar() function
+   randomCar(): Selects a random Car from a given vector
    argument: vector of Car objects
    returns: randomly selected Car from the vector
 */
@@ -314,6 +313,11 @@ Car randomCar(const vector<Car>& list){
     return list.at(rand() % list.size());
 }
 
+/*
+    chance(): Returns true with a given percentage probability
+    Arguments: const int& p (probability (0–100))
+    Returns: bool — true if random number is <= p 
+*/
 bool chance( const int& p){
     int random = rand()% 100 + 1;
 
@@ -321,6 +325,12 @@ bool chance( const int& p){
     
 }
 
+/*
+    setupDealer(): Initializes a dealer's inventory with random cars
+    Arguments: Car_Array& dl (dealer inventory to modify), const vector<Car>& list (source car list)
+        int check  (1 for sale inventory, 0 for trade-in inventory)
+    Returns: void
+*/
 void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
     if(check == 1){
         for(int i = 0; i < (rand()% 10 + 1); i++){

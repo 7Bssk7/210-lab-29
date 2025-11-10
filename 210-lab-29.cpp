@@ -280,6 +280,9 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     cout << "Cars sold: " << num_sold << endl;
     cout << "Trade-ins during sales: " << num_trade << endl;
     cout << "Random trade-ins: " << num_random_trades << endl;
+    if(profit < 0 ){
+        cout << "*** Warning: Dealership operated at a loss this month due to excessive trade-ins! ***" << endl;
+    }
     cout << "Profit this month: $" << profit << endl;
 
 

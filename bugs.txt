@@ -43,3 +43,7 @@ Fix: To solve this bug I will use a while loop and increment the iterator only i
 Bug #9: There is no total number of the sold and traded-in cars.
 Description: At the moment, the final output only has data on the total profit of each dealership, but lacks data on the total number of cars sold and traded-in.
 Fix: In the structure Car_Array, add two integers to track the number of cars sold and traded-in at each dealership.
+
+Bug #10: Profit Loss Warning
+Description: The simulation contains situations where the number of exchanges may exceed the number of sales, which subsequently results in losses in profit.
+Fix: Adds a warning message about losses in a month.

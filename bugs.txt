@@ -1,0 +1,49 @@
+Bug #1: the user cannot see the original inventory.
+Description: When starting the program, I made it possible for the user to see the initial inventory of the dealership, but due to the fast loading of the simulation, the initial output lines disappear.
+Fix:  Add the menu where there is an option to view the initial inventory before the simulation.
+
+Bug #2: Outputting an empty profit 
+Description: When outputting the initial inventory, the profit for each dealership is also displayed along with all the vehicles. Since the initial inventory is displayed before the simulation, the profit should be zero, not empty.
+Fix: Change the output parameters in the "outputDealerInit" function to show zero instead of nothing.
+
+Bug #3: Scientific numbers in the final profit output
+Description: When outputting the final profit of each dealer in the table, due to the large numbers, scientific numbers are outputted.
+Fix: added "cout << fixed << setprecision(0);" to get rid of scientific format.
+
+Bug #4: Uneven output
+Description: Due to changing numbers, the table displaying the final monthly results for dealer profits looks uneven.
+Fix: Added a string stream to convert the contents of each interator into a string: 
+stringstream ss1, ss2, ss3;
+        ss1 << '$' << *it1;
+        ss2 << '$' << *it2;
+        ss3 << '$' << *it3;
+        string s1;
+        ss1 >> s1;
+        string s2;
+        ss2 >> s2;
+        string s3;
+        ss3 >> s3;
+
+Bug #5: Trade-in count includes random trades before simulation
+Description: Monthly trade-in count includes extra trades from chance(10) block.
+Fix: Separated num_trade from random trade count or clarified output.
+
+Bug #6: There is no check for empty car vectors and no warning when opening files fails.
+Description: When launching the program, there is no warning if there is an error opening files containing cars. The simulation also starts without checking whether the vectors contain cars.
+Fix: Added a simple error message. I also added a check for the contents of the vector cars (if(cars_s.empty() || cars_t.empty())). If an error occurs, the program reports it and terminates without continuing with the simulation.
+
+Bug #7: No pause between months, simulation runs instantly 
+Description: Simulation runs all 36 months instantly, making it hard to follow.
+Fix: Add a short delay before each iteration of simulation loop in the main function, using <choro> and <thread> libraries ,and  this_thread::sleep_for() to slow down output.
+
+Bug #8: Skipping an element in a for loop
+Description: At the moment, when simulating the sale and deletion of an element from the list, due to the structure of the for loop, the element corresponding to the deleted element is skipped.
+Fix: To solve this bug I will use a while loop and increment the iterator only if no element is deleted.
+
+Bug #9: There is no total number of the sold and traded-in cars.
+Description: At the moment, the final output only has data on the total profit of each dealership, but lacks data on the total number of cars sold and traded-in.
+Fix: In the structure Car_Array, add two integers to track the number of cars sold and traded-in at each dealership.
+
+Bug #10: Profit Loss Warning
+Description: The simulation contains situations where the number of exchanges may exceed the number of sales, which subsequently results in losses in profit.
+Fix: Adds a warning message about losses in a month.

@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 30 | Arkhip Finski
+// COMSC-210 | Lab 31 | Arkhip Finski
 // IDE used: Visual Studio
 
 //Include all necessary headers
@@ -16,6 +16,7 @@
 
 using namespace std;
 
+//Constants for array size and simulation length
 const int INIT_SIZE = 10, SIM = 36;
 
 /*
@@ -35,6 +36,7 @@ class Car{
             price = p;
         }
 
+        // Getter methods
         string getMake() const { return make;}
         string getModel() const { return model;}
         int getMile() const { return mileage;}
@@ -55,17 +57,20 @@ class Car{
     car_S — cars for sale
     car_T — trade-in cars
     profit — monthly profit values
+    Purpose: Holds inventory and profit data for a dealership
 */
+
 struct Car_Array{
     list<Car> car_S;
     list<Car> car_T;
     list<double> profit;
 
+    //Added counters for tracking totals
     int total_sold = 0;
     int total_traded = 0;
 };
 
-// Define randomCar() function
+// Function Prototypes
 Car randomCar(const vector<Car>&);
 bool chance(const int&);
 void setupDealer(Car_Array& , const vector<Car>&, int);
@@ -152,6 +157,7 @@ int main(){
     // Close the file trade.txt
     car_trade.close();
 
+    // Validate input data
     if(cars_s.empty() || cars_t.empty()){
         cout << "Error: One or both input files are empty or invalid. Simulation could not be started." << endl;
 
@@ -161,7 +167,7 @@ int main(){
     // Declare map<string, Car_Array> dealersData
     map<string, Car_Array> dealersData;
 
-    // Create array for one dealership ("Dealer #1")
+    // Initialize dealers
     Car_Array dealer1;
     Car_Array dealer2;
     Car_Array dealer3;
@@ -181,6 +187,7 @@ int main(){
 
     outputMenu(dealersData["Dealer #1"], dealersData["Dealer #2"], dealersData["Dealer #3"]);
 
+    // Run simulation
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
         this_thread::sleep_for(std::chrono::seconds(1));
@@ -204,6 +211,12 @@ int main(){
 }
 
 
+/*
+    Function: simulation
+    Purpose: Simulates one month of sales and trade-ins
+    Arguments: array structure dealer, vecotr of cars for sale, vecotor of trade-in cars
+    Returns: void
+*/
 void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     int count = 0;
     double profit = 0;

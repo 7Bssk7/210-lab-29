@@ -11,6 +11,8 @@
 #include <vector>
 #include <sstream>
 #include <iomanip> 
+#include <chrono>
+#include <thread>  
 
 using namespace std;
 
@@ -178,6 +180,7 @@ int main(){
 
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
+        this_thread::sleep_for(std::chrono::seconds(1));
         cout << "\nDealer #1" << endl;
         cout << "MONTH #" << i+1 << endl;
         simulation(dealersData["Dealer #1"],cars_s,cars_t);

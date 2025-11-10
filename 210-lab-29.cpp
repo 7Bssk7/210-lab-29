@@ -338,8 +338,6 @@ void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
 
 
 }
-
-
 /*
     outputDealerInit(): Outputs the initial inventory of a dealer
     Arguments: const Car_Array& dealer (dealer inventory to output)
@@ -486,10 +484,5 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
             cin >> choice; 
 
         }
-
-        
-
     }
-
-
 }

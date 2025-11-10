@@ -60,6 +60,9 @@ struct Car_Array{
     list<Car> car_S;
     list<Car> car_T;
     list<double> profit;
+
+    int total_sold = 0;
+    int total_traded = 0;
 };
 
 // Define randomCar() function
@@ -180,7 +183,7 @@ int main(){
 
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
-        this_thread::sleep_for(std::chrono::seconds(1));
+        this_thread::sleep_for(std::chrono::seconds(0));
         cout << "\nDealer #1" << endl;
         cout << "MONTH #" << i+1 << endl;
         simulation(dealersData["Dealer #1"],cars_s,cars_t);
@@ -281,6 +284,8 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
 
 
     dl.profit.push_back(profit);
+    dl.total_sold += num_sold;
+    dl.total_traded += (num_trade + num_random_trades); 
 
 }
 
@@ -403,6 +408,8 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
 
     cout << fixed << setprecision(0);
     cout << right << setw(9) << "TOTAL PROFIT: "<< right << setw(8) << "$" << profitDl1  << setw(13) << "$" << profitDl2 << setw(15) << "$" << profitDl3 << endl;
+    cout << right << setw(9) << "TOTAL CARS SOLD: "<< right << setw(9) << dl1.total_sold << setw(20) << dl2.total_sold << setw(22) << dl3.total_sold << endl;
+
 
 }
 

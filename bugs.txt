@@ -31,3 +31,7 @@ Fix: Separated num_trade from random trade count or clarified output.
 Bug #6: There is no check for empty car vectors and no warning when opening files fails.
 Description: When launching the program, there is no warning if there is an error opening files containing cars. The simulation also starts without checking whether the vectors contain cars.
 Fix: Added a simple error message. I also added a check for the contents of the vector cars (if(cars_s.empty() || cars_t.empty())). If an error occurs, the program reports it and terminates without continuing with the simulation.
+
+Bug #7: No pause between months, simulation runs instantly 
+Description: Simulation runs all 36 months instantly, making it hard to follow.
+Fix: Add a short delay before each iteration of simulation loop in the main function, using <choro> and <thread> libraries ,and  this_thread::sleep_for() to slow down output.

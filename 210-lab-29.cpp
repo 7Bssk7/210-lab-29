@@ -216,7 +216,8 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     }
     cout << endl;
 
-    for(auto it = dl.car_S.begin(); it != dl.car_S.end(); ++it){
+    auto it = dl.car_S.begin();
+    while(it != dl.car_S.end()){
         if(chance(20)){
             double salePrice = it->getPrice();
 
@@ -240,9 +241,10 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
 
             it = dl.car_S.erase(it);
             num_sold +=1;
+        }
+        else{
+            ++it;
         }    
-
-        
     
     }
     if(chance(10)){
@@ -429,7 +431,7 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
             cout << "\nDealer #3 Initial Inventory" << endl;
             outputDealerInit(dl3);
 
-            cout << "\nMeun:" << endl;
+            cout << "\nMenu:" << endl;
 
             cout << "1. View starting inventory" << endl;
             cout << "2. Start the simulation" << endl;
@@ -441,7 +443,7 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
         else{
             cout << "Invalid input, please choose again: " << endl;
 
-            cout << "\nMeun:" << endl;
+            cout << "\nMenu:" << endl;
 
             cout << "1. View starting inventory" << endl;
             cout << "2. Start the simulation" << endl;

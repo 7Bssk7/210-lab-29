@@ -35,3 +35,7 @@ Fix: Added a simple error message. I also added a check for the contents of the 
 Bug #7: No pause between months, simulation runs instantly 
 Description: Simulation runs all 36 months instantly, making it hard to follow.
 Fix: Add a short delay before each iteration of simulation loop in the main function, using <choro> and <thread> libraries ,and  this_thread::sleep_for() to slow down output.
+
+Bug #8: Skipping an element in a for loop
+Description: At the moment, when simulating the sale and deletion of an element from the list, due to the structure of the for loop, the element corresponding to the deleted element is skipped.
+Fix: To solve this bug I will use a while loop and increment the iterator only if no element is deleted.

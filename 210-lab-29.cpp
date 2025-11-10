@@ -300,7 +300,7 @@ void setupDealer( Car_Array& dl, const vector<Car>& list, int check){
 }
 
 void outputDealerInit(const Car_Array& dealer){
-    cout << "Inventory for sale: " << endl;
+    cout << "\nInventory for sale: " << endl;
     for (const auto& car : dealer.car_S) {
         cout << car.getMake() << " " << car.getModel() << " "<< car.getMile() << " " << car.getYear() << " $"<< car.getPrice() << endl;
     }
@@ -311,12 +311,8 @@ void outputDealerInit(const Car_Array& dealer){
     }
 
     // Output each profit value of "Dealer #1"
-    cout << "\nProfit: " << endl;
-    int month = 1;
-    for (const auto& p : dealer.profit) {
-        cout << "Month #" << month << " $" << p << "\n" << endl;
-        ++month;
-    }
+    cout << "\nProfit: $0 (There is no profit, this is just a presentation of the initial inventory)" << endl;
+    
 
 }
 
@@ -409,11 +405,11 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
     while( choice != "2"){
 
         if(choice == "1"){
-            cout << "Dealer #1 Initial Inventory" << endl;
+            cout << "\nDealer #1 Initial Inventory" << endl;
             outputDealerInit(dl1);
-            cout << "Dealer #2 Initial Inventory" << endl;
+            cout << "\nDealer #2 Initial Inventory" << endl;
             outputDealerInit(dl2);
-            cout << "Dealer #3 Initial Inventory" << endl;
+            cout << "\nDealer #3 Initial Inventory" << endl;
             outputDealerInit(dl3);
 
             cout << "\nMeun:" << endl;

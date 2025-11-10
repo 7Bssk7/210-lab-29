@@ -1,3 +1,7 @@
 Bug #1: the user cannot see the original inventory.
 Description: When starting the program, I made it possible for the user to see the initial inventory of the dealership, but due to the fast loading of the simulation, the initial output lines disappear.
 Fix:  Add the menu where there is an option to view the initial inventory before the simulation.
+
+Bug #2: Outputting an empty profit 
+Description: When outputting the initial inventory, the profit for each dealership is also displayed along with all the vehicles. Since the initial inventory is displayed before the simulation, the profit should be zero, not empty.
+Fix: Change the output parameters in the "outputDealerInit" function to show zero instead of nothing.

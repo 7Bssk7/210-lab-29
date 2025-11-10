@@ -166,7 +166,7 @@ int main(){
     dealersData["Dealer #2"] = dealer2;
     dealersData["Dealer #3"] = dealer3;
 
-    outputMenu();
+    outputMenu(dealersData["Dealer #1"], dealersData["Dealer #2"], dealersData["Dealer #3"]);
 
     cout << "\n*** SIMULATION ***" << endl;
     for(int i = 0; i < SIM; i++){
@@ -393,13 +393,55 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
 
 void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3){
 
+    string choice;
+
     cout << "*** Welcome to the car dealership simulation! ***" << endl;
 
+    cout << "\nMeun:" << endl;
 
-    cout << "Dealer #1 Initial Inventory" << endl;
-    outputDealerInit(dl1);
-    cout << "Dealer #2 Initial Inventory" << endl;
-    outputDealerInit(dl2);
-    cout << "Dealer #3 Initial Inventory" << endl;
-    outputDealerInit(dl3);
+    cout << "1. View starting inventory" << endl;
+    cout << "2. Start the simulation" << endl;
+
+    cout << "Choice-> ";
+
+    cin >> choice;
+
+    while( choice != "2"){
+
+        if(choice == "1"){
+            cout << "Dealer #1 Initial Inventory" << endl;
+            outputDealerInit(dl1);
+            cout << "Dealer #2 Initial Inventory" << endl;
+            outputDealerInit(dl2);
+            cout << "Dealer #3 Initial Inventory" << endl;
+            outputDealerInit(dl3);
+
+            cout << "\nMeun:" << endl;
+
+            cout << "1. View starting inventory" << endl;
+            cout << "2. Start the simulation" << endl;
+
+            cout << "Choice-> ";
+
+            cin >> choice;
+        }
+        else{
+            cout << "Invalid input, please choose again: " << endl;
+
+            cout << "\nMeun:" << endl;
+
+            cout << "1. View starting inventory" << endl;
+            cout << "2. Start the simulation" << endl;
+
+            cout << "Choice-> ";
+
+            cin >> choice; 
+
+        }
+
+        
+
+    }
+
+
 }

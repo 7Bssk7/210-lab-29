@@ -399,7 +399,7 @@ void outputMenu(const Car_Array& dl1,const Car_Array& dl2, const Car_Array& dl3)
 
     cout << "*** Welcome to the car dealership simulation! ***" << endl;
 
-    cout << "\nMeun:" << endl;
+    cout << "\nMenu:" << endl;
 
     cout << "1. View starting inventory" << endl;
     cout << "2. Start the simulation" << endl;

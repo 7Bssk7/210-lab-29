@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <iomanip>
+#include <iomanip> 
 
 using namespace std;
 
@@ -194,6 +194,7 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
     int count = 0;
     double profit = 0;
     int num_trade = 0;
+    int num_random_trades = 0;
     int num_sold = 0;
     
     cout << "\nCars added to inventory this month: \n" << endl;
@@ -230,6 +231,7 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
             num_sold +=1;
         }    
 
+        
     
     }
     if(chance(10)){
@@ -248,20 +250,22 @@ void simulation(Car_Array& dl, const vector<Car>& cs, const vector<Car>& ct){
             trades = 5;
         }
 
-        cout << num_trade + trades << " car(s) traded in this month: " << endl;
+        cout << "Random trade-in(s) this month:" << endl;
         for(int i = 0; i < trades; ++i){
             Car tradeIn = randomCar(ct);
             cout << tradeIn.getMake()<< " " << tradeIn.getModel() << " " << tradeIn.getMile() << " "  << tradeIn.getYear() << " $" << tradeIn.getPrice() << endl;
             dl.car_T.push_back(tradeIn);
             profit -= tradeIn.getPrice();
-            num_trade +=1;
+            num_random_trades += 1;
         }
 
     }
 
     cout << "Cars sold: " << num_sold << endl;
-    cout << "Cars traded in: " << num_trade << endl;
+    cout << "Trade-ins during sales: " << num_trade << endl;
+    cout << "Random trade-ins: " << num_random_trades << endl;
     cout << "Profit this month: $" << profit << endl;
+
 
     dl.profit.push_back(profit);
 
@@ -365,10 +369,12 @@ void outputDealerFin( const Car_Array& dl1,const Car_Array& dl2, const Car_Array
         ss1 << '$' << *it1;
         ss2 << '$' << *it2;
         ss3 << '$' << *it3;
-        string s1 = ss1.str();
-        string s2 = ss2.str();
-        string s3 = ss3.str();
-
+        string s1;
+        ss1 >> s1;
+        string s2;
+        ss2 >> s2;
+        string s3;
+        ss3 >> s3;
 
         cout << right << setw(9) << "Month #" << left << setw(3) << i<< right << setw(16) << s1  << setw(21) << s2<< setw(21) << s3<< endl;
 
